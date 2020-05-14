@@ -85,6 +85,10 @@
    "True"
   ],
   [
+   "nlohmann_json:multiple_headers",
+   "False"
+  ],
+  [
    "sdl2:alsa",
    "True"
   ],

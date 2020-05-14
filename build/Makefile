@@ -123,6 +123,33 @@ BlastCompany/fast:
 	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/build
 .PHONY : BlastCompany/fast
 
+imagetexturecomponent.o: imagetexturecomponent.cpp.o
+
+.PHONY : imagetexturecomponent.o
+
+# target to build an object file
+imagetexturecomponent.cpp.o:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/imagetexturecomponent.cpp.o
+.PHONY : imagetexturecomponent.cpp.o
+
+imagetexturecomponent.i: imagetexturecomponent.cpp.i
+
+.PHONY : imagetexturecomponent.i
+
+# target to preprocess a source file
+imagetexturecomponent.cpp.i:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/imagetexturecomponent.cpp.i
+.PHONY : imagetexturecomponent.cpp.i
+
+imagetexturecomponent.s: imagetexturecomponent.cpp.s
+
+.PHONY : imagetexturecomponent.s
+
+# target to generate assembly for a file
+imagetexturecomponent.cpp.s:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/imagetexturecomponent.cpp.s
+.PHONY : imagetexturecomponent.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -150,6 +177,168 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+quad.o: quad.cpp.o
+
+.PHONY : quad.o
+
+# target to build an object file
+quad.cpp.o:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/quad.cpp.o
+.PHONY : quad.cpp.o
+
+quad.i: quad.cpp.i
+
+.PHONY : quad.i
+
+# target to preprocess a source file
+quad.cpp.i:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/quad.cpp.i
+.PHONY : quad.cpp.i
+
+quad.s: quad.cpp.s
+
+.PHONY : quad.s
+
+# target to generate assembly for a file
+quad.cpp.s:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/quad.cpp.s
+.PHONY : quad.cpp.s
+
+rect.o: rect.cpp.o
+
+.PHONY : rect.o
+
+# target to build an object file
+rect.cpp.o:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/rect.cpp.o
+.PHONY : rect.cpp.o
+
+rect.i: rect.cpp.i
+
+.PHONY : rect.i
+
+# target to preprocess a source file
+rect.cpp.i:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/rect.cpp.i
+.PHONY : rect.cpp.i
+
+rect.s: rect.cpp.s
+
+.PHONY : rect.s
+
+# target to generate assembly for a file
+rect.cpp.s:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/rect.cpp.s
+.PHONY : rect.cpp.s
+
+sdlrenderer.o: sdlrenderer.cpp.o
+
+.PHONY : sdlrenderer.o
+
+# target to build an object file
+sdlrenderer.cpp.o:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/sdlrenderer.cpp.o
+.PHONY : sdlrenderer.cpp.o
+
+sdlrenderer.i: sdlrenderer.cpp.i
+
+.PHONY : sdlrenderer.i
+
+# target to preprocess a source file
+sdlrenderer.cpp.i:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/sdlrenderer.cpp.i
+.PHONY : sdlrenderer.cpp.i
+
+sdlrenderer.s: sdlrenderer.cpp.s
+
+.PHONY : sdlrenderer.s
+
+# target to generate assembly for a file
+sdlrenderer.cpp.s:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/sdlrenderer.cpp.s
+.PHONY : sdlrenderer.cpp.s
+
+texture.o: texture.cpp.o
+
+.PHONY : texture.o
+
+# target to build an object file
+texture.cpp.o:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/texture.cpp.o
+.PHONY : texture.cpp.o
+
+texture.i: texture.cpp.i
+
+.PHONY : texture.i
+
+# target to preprocess a source file
+texture.cpp.i:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/texture.cpp.i
+.PHONY : texture.cpp.i
+
+texture.s: texture.cpp.s
+
+.PHONY : texture.s
+
+# target to generate assembly for a file
+texture.cpp.s:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/texture.cpp.s
+.PHONY : texture.cpp.s
+
+vector.o: vector.cpp.o
+
+.PHONY : vector.o
+
+# target to build an object file
+vector.cpp.o:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/vector.cpp.o
+.PHONY : vector.cpp.o
+
+vector.i: vector.cpp.i
+
+.PHONY : vector.i
+
+# target to preprocess a source file
+vector.cpp.i:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/vector.cpp.i
+.PHONY : vector.cpp.i
+
+vector.s: vector.cpp.s
+
+.PHONY : vector.s
+
+# target to generate assembly for a file
+vector.cpp.s:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/vector.cpp.s
+.PHONY : vector.cpp.s
+
+window.o: window.cpp.o
+
+.PHONY : window.o
+
+# target to build an object file
+window.cpp.o:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/window.cpp.o
+.PHONY : window.cpp.o
+
+window.i: window.cpp.i
+
+.PHONY : window.i
+
+# target to preprocess a source file
+window.cpp.i:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/window.cpp.i
+.PHONY : window.cpp.i
+
+window.s: window.cpp.s
+
+.PHONY : window.s
+
+# target to generate assembly for a file
+window.cpp.s:
+	$(MAKE) -f CMakeFiles/BlastCompany.dir/build.make CMakeFiles/BlastCompany.dir/window.cpp.s
+.PHONY : window.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,9 +348,30 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... BlastCompany"
 	@echo "... edit_cache"
+	@echo "... imagetexturecomponent.o"
+	@echo "... imagetexturecomponent.i"
+	@echo "... imagetexturecomponent.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... quad.o"
+	@echo "... quad.i"
+	@echo "... quad.s"
+	@echo "... rect.o"
+	@echo "... rect.i"
+	@echo "... rect.s"
+	@echo "... sdlrenderer.o"
+	@echo "... sdlrenderer.i"
+	@echo "... sdlrenderer.s"
+	@echo "... texture.o"
+	@echo "... texture.i"
+	@echo "... texture.s"
+	@echo "... vector.o"
+	@echo "... vector.i"
+	@echo "... vector.s"
+	@echo "... window.o"
+	@echo "... window.i"
+	@echo "... window.s"
 .PHONY : help
 
 

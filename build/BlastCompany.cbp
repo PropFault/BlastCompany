@@ -38,6 +38,7 @@
 					<Add directory="/home/benedikt/.conan/data/Catch2/2.11.1/catchorg/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"/>
 					<Add directory="/home/benedikt/.conan/data/sdl2_image/2.0.5/bincrafters/stable/package/f69f0a75add15c51b9a891e5104620af1f55853b/include"/>
 					<Add directory="/home/benedikt/.conan/data/sdl2_image/2.0.5/bincrafters/stable/package/f69f0a75add15c51b9a891e5104620af1f55853b/include/SDL2"/>
+					<Add directory="/home/benedikt/.conan/data/nlohmann_json/3.7.3/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"/>
 					<Add directory="/home/benedikt/.conan/data/sdl2/2.0.10/bincrafters/stable/package/3e751c1a2a518677ed385cac4522686ec9c69220/include"/>
 					<Add directory="/home/benedikt/.conan/data/sdl2/2.0.10/bincrafters/stable/package/3e751c1a2a518677ed385cac4522686ec9c69220/include/SDL2"/>
 					<Add directory="/home/benedikt/.conan/data/libpng/1.6.37/bincrafters/stable/package/90cb27019473e527473a04591528c6cd6de29131/include"/>
@@ -73,6 +74,7 @@
 					<Add directory="/home/benedikt/.conan/data/Catch2/2.11.1/catchorg/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"/>
 					<Add directory="/home/benedikt/.conan/data/sdl2_image/2.0.5/bincrafters/stable/package/f69f0a75add15c51b9a891e5104620af1f55853b/include"/>
 					<Add directory="/home/benedikt/.conan/data/sdl2_image/2.0.5/bincrafters/stable/package/f69f0a75add15c51b9a891e5104620af1f55853b/include/SDL2"/>
+					<Add directory="/home/benedikt/.conan/data/nlohmann_json/3.7.3/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"/>
 					<Add directory="/home/benedikt/.conan/data/sdl2/2.0.10/bincrafters/stable/package/3e751c1a2a518677ed385cac4522686ec9c69220/include"/>
 					<Add directory="/home/benedikt/.conan/data/sdl2/2.0.10/bincrafters/stable/package/3e751c1a2a518677ed385cac4522686ec9c69220/include/SDL2"/>
 					<Add directory="/home/benedikt/.conan/data/libpng/1.6.37/bincrafters/stable/package/90cb27019473e527473a04591528c6cd6de29131/include"/>
@@ -108,7 +110,49 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/benedikt/BlastCompany/imagetexturecomponent.cpp">
+			<Option target="BlastCompany"/>
+		</Unit>
+		<Unit filename="/home/benedikt/BlastCompany/imagetexturecomponent.h">
+			<Option target="BlastCompany"/>
+		</Unit>
 		<Unit filename="/home/benedikt/BlastCompany/main.cpp">
+			<Option target="BlastCompany"/>
+		</Unit>
+		<Unit filename="/home/benedikt/BlastCompany/quad.cpp">
+			<Option target="BlastCompany"/>
+		</Unit>
+		<Unit filename="/home/benedikt/BlastCompany/quad.h">
+			<Option target="BlastCompany"/>
+		</Unit>
+		<Unit filename="/home/benedikt/BlastCompany/rect.cpp">
+			<Option target="BlastCompany"/>
+		</Unit>
+		<Unit filename="/home/benedikt/BlastCompany/rect.h">
+			<Option target="BlastCompany"/>
+		</Unit>
+		<Unit filename="/home/benedikt/BlastCompany/sdlrenderer.cpp">
+			<Option target="BlastCompany"/>
+		</Unit>
+		<Unit filename="/home/benedikt/BlastCompany/sdlrenderer.h">
+			<Option target="BlastCompany"/>
+		</Unit>
+		<Unit filename="/home/benedikt/BlastCompany/texture.cpp">
+			<Option target="BlastCompany"/>
+		</Unit>
+		<Unit filename="/home/benedikt/BlastCompany/texture.h">
+			<Option target="BlastCompany"/>
+		</Unit>
+		<Unit filename="/home/benedikt/BlastCompany/vector.cpp">
+			<Option target="BlastCompany"/>
+		</Unit>
+		<Unit filename="/home/benedikt/BlastCompany/vector.h">
+			<Option target="BlastCompany"/>
+		</Unit>
+		<Unit filename="/home/benedikt/BlastCompany/window.cpp">
+			<Option target="BlastCompany"/>
+		</Unit>
+		<Unit filename="/home/benedikt/BlastCompany/window.h">
 			<Option target="BlastCompany"/>
 		</Unit>
 		<Unit filename="/home/benedikt/BlastCompany/CMakeLists.txt">

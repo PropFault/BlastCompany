@@ -69,6 +69,29 @@ set(CONAN_CXX_FLAGS_SDL2_IMAGE_LIST "")
 set(CONAN_SHARED_LINKER_FLAGS_SDL2_IMAGE_LIST "")
 set(CONAN_EXE_LINKER_FLAGS_SDL2_IMAGE_LIST "")
 
+set(CONAN_NLOHMANN_JSON_ROOT "/home/benedikt/.conan/data/nlohmann_json/3.7.3/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9")
+set(CONAN_INCLUDE_DIRS_NLOHMANN_JSON "/home/benedikt/.conan/data/nlohmann_json/3.7.3/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include")
+set(CONAN_LIB_DIRS_NLOHMANN_JSON )
+set(CONAN_BIN_DIRS_NLOHMANN_JSON )
+set(CONAN_RES_DIRS_NLOHMANN_JSON )
+set(CONAN_SRC_DIRS_NLOHMANN_JSON )
+set(CONAN_BUILD_DIRS_NLOHMANN_JSON "/home/benedikt/.conan/data/nlohmann_json/3.7.3/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/")
+set(CONAN_LIBS_NLOHMANN_JSON )
+set(CONAN_DEFINES_NLOHMANN_JSON )
+# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
+set(CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON )
+
+set(CONAN_C_FLAGS_NLOHMANN_JSON "")
+set(CONAN_CXX_FLAGS_NLOHMANN_JSON "")
+set(CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON "")
+set(CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON "")
+
+# For modern cmake targets we use the list variables (separated with ;)
+set(CONAN_C_FLAGS_NLOHMANN_JSON_LIST "")
+set(CONAN_CXX_FLAGS_NLOHMANN_JSON_LIST "")
+set(CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_LIST "")
+set(CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_LIST "")
+
 set(CONAN_SDL2_ROOT "/home/benedikt/.conan/data/sdl2/2.0.10/bincrafters/stable/package/3e751c1a2a518677ed385cac4522686ec9c69220")
 set(CONAN_INCLUDE_DIRS_SDL2 "/home/benedikt/.conan/data/sdl2/2.0.10/bincrafters/stable/package/3e751c1a2a518677ed385cac4522686ec9c69220/include"
 			"/home/benedikt/.conan/data/sdl2/2.0.10/bincrafters/stable/package/3e751c1a2a518677ed385cac4522686ec9c69220/include/SDL2")
@@ -246,7 +269,7 @@ set(CONAN_SETTINGS_COMPILER_VERSION "7.0")
 set(CONAN_SETTINGS_OS "Linux")
 set(CONAN_SETTINGS_OS_BUILD "Linux")
 
-set(CONAN_DEPENDENCIES spdlog Catch2 sdl2_image sdl2 libpng libtiff fmt libjpeg-turbo libwebp zlib)
+set(CONAN_DEPENDENCIES spdlog Catch2 sdl2_image nlohmann_json sdl2 libpng libtiff fmt libjpeg-turbo libwebp zlib)
 # Storing original command line args (CMake helper) flags
 set(CONAN_CMD_CXX_FLAGS ${CONAN_CXX_FLAGS})
 
@@ -258,6 +281,7 @@ set(CONAN_INCLUDE_DIRS "/home/benedikt/.conan/data/spdlog/1.3.1/bincrafters/stab
 			"/home/benedikt/.conan/data/Catch2/2.11.1/catchorg/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"
 			"/home/benedikt/.conan/data/sdl2_image/2.0.5/bincrafters/stable/package/f69f0a75add15c51b9a891e5104620af1f55853b/include"
 			"/home/benedikt/.conan/data/sdl2_image/2.0.5/bincrafters/stable/package/f69f0a75add15c51b9a891e5104620af1f55853b/include/SDL2"
+			"/home/benedikt/.conan/data/nlohmann_json/3.7.3/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"
 			"/home/benedikt/.conan/data/sdl2/2.0.10/bincrafters/stable/package/3e751c1a2a518677ed385cac4522686ec9c69220/include"
 			"/home/benedikt/.conan/data/sdl2/2.0.10/bincrafters/stable/package/3e751c1a2a518677ed385cac4522686ec9c69220/include/SDL2"
 			"/home/benedikt/.conan/data/libpng/1.6.37/bincrafters/stable/package/90cb27019473e527473a04591528c6cd6de29131/include"
@@ -284,6 +308,7 @@ set(CONAN_DEFINES "-DSPDLOG_FMT_EXTERNAL" ${CONAN_DEFINES})
 set(CONAN_CMAKE_MODULE_PATH "/home/benedikt/.conan/data/spdlog/1.3.1/bincrafters/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/"
 			"/home/benedikt/.conan/data/Catch2/2.11.1/catchorg/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/"
 			"/home/benedikt/.conan/data/sdl2_image/2.0.5/bincrafters/stable/package/f69f0a75add15c51b9a891e5104620af1f55853b/"
+			"/home/benedikt/.conan/data/nlohmann_json/3.7.3/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/"
 			"/home/benedikt/.conan/data/sdl2/2.0.10/bincrafters/stable/package/3e751c1a2a518677ed385cac4522686ec9c69220/"
 			"/home/benedikt/.conan/data/libpng/1.6.37/bincrafters/stable/package/90cb27019473e527473a04591528c6cd6de29131/"
 			"/home/benedikt/.conan/data/libtiff/4.0.9/bincrafters/stable/package/90cb27019473e527473a04591528c6cd6de29131/"
@@ -418,6 +443,43 @@ macro(conan_define_targets)
                                                                   $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_SDL2_IMAGE_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_SDL2_IMAGE_RELWITHDEBINFO_LIST}>
                                                                   $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_SDL2_IMAGE_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_SDL2_IMAGE_MINSIZEREL_LIST}>
                                                                   $<$<CONFIG:Debug>:${CONAN_C_FLAGS_SDL2_IMAGE_DEBUG_LIST}  ${CONAN_CXX_FLAGS_SDL2_IMAGE_DEBUG_LIST}>)
+
+
+    conan_package_library_targets("${CONAN_LIBS_NLOHMANN_JSON}" "${CONAN_LIB_DIRS_NLOHMANN_JSON}"
+                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON "" "" nlohmann_json)
+    conan_package_library_targets("${CONAN_LIBS_NLOHMANN_JSON_DEBUG}" "${CONAN_LIB_DIRS_NLOHMANN_JSON_DEBUG}"
+                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_DEBUG "" "debug" nlohmann_json)
+    conan_package_library_targets("${CONAN_LIBS_NLOHMANN_JSON_RELEASE}" "${CONAN_LIB_DIRS_NLOHMANN_JSON_RELEASE}"
+                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_RELEASE "" "release" nlohmann_json)
+    conan_package_library_targets("${CONAN_LIBS_NLOHMANN_JSON_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_NLOHMANN_JSON_RELWITHDEBINFO}"
+                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_RELWITHDEBINFO "" "relwithdebinfo" nlohmann_json)
+    conan_package_library_targets("${CONAN_LIBS_NLOHMANN_JSON_MINSIZEREL}" "${CONAN_LIB_DIRS_NLOHMANN_JSON_MINSIZEREL}"
+                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_MINSIZEREL "" "minsizerel" nlohmann_json)
+
+    add_library(CONAN_PKG::nlohmann_json INTERFACE IMPORTED)
+
+    # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
+    set_property(TARGET CONAN_PKG::nlohmann_json PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON} ${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_LIST} ${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_LIST}
+                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_RELEASE} ${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_RELEASE_LIST} ${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_RELEASE_LIST}>
+                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_RELWITHDEBINFO} ${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_RELWITHDEBINFO_LIST} ${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_RELWITHDEBINFO_LIST}>
+                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_MINSIZEREL} ${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_MINSIZEREL_LIST} ${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_MINSIZEREL_LIST}>
+                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_DEBUG} ${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_DEBUG_LIST} ${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_DEBUG_LIST}>
+                                                                 )
+    set_property(TARGET CONAN_PKG::nlohmann_json PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_NLOHMANN_JSON}
+                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_NLOHMANN_JSON_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_NLOHMANN_JSON_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_NLOHMANN_JSON_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_NLOHMANN_JSON_DEBUG}>)
+    set_property(TARGET CONAN_PKG::nlohmann_json PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON}
+                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON_DEBUG}>)
+    set_property(TARGET CONAN_PKG::nlohmann_json PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_NLOHMANN_JSON_LIST} ${CONAN_CXX_FLAGS_NLOHMANN_JSON_LIST}
+                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_NLOHMANN_JSON_RELEASE_LIST} ${CONAN_CXX_FLAGS_NLOHMANN_JSON_RELEASE_LIST}>
+                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_NLOHMANN_JSON_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_NLOHMANN_JSON_RELWITHDEBINFO_LIST}>
+                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_NLOHMANN_JSON_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_NLOHMANN_JSON_MINSIZEREL_LIST}>
+                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_NLOHMANN_JSON_DEBUG_LIST}  ${CONAN_CXX_FLAGS_NLOHMANN_JSON_DEBUG_LIST}>)
 
 
     conan_package_library_targets("${CONAN_LIBS_SDL2}" "${CONAN_LIB_DIRS_SDL2}"
@@ -678,7 +740,7 @@ macro(conan_define_targets)
                                                                   $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_ZLIB_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_ZLIB_MINSIZEREL_LIST}>
                                                                   $<$<CONFIG:Debug>:${CONAN_C_FLAGS_ZLIB_DEBUG_LIST}  ${CONAN_CXX_FLAGS_ZLIB_DEBUG_LIST}>)
 
-    set(CONAN_TARGETS CONAN_PKG::spdlog CONAN_PKG::Catch2 CONAN_PKG::sdl2_image CONAN_PKG::sdl2 CONAN_PKG::libpng CONAN_PKG::libtiff CONAN_PKG::fmt CONAN_PKG::libjpeg-turbo CONAN_PKG::libwebp CONAN_PKG::zlib)
+    set(CONAN_TARGETS CONAN_PKG::spdlog CONAN_PKG::Catch2 CONAN_PKG::sdl2_image CONAN_PKG::nlohmann_json CONAN_PKG::sdl2 CONAN_PKG::libpng CONAN_PKG::libtiff CONAN_PKG::fmt CONAN_PKG::libjpeg-turbo CONAN_PKG::libwebp CONAN_PKG::zlib)
 
 endmacro()
 

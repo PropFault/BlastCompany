@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.8.2, 2020-05-14T20:36:20. -->
+<!-- Written by QtCreator 4.8.2, 2020-05-15T01:45:38. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -365,6 +365,7 @@
     <value type="bool" key="RunConfiguration.UseMultiProcess">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseTerminal">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/benedikt/BlastCompany/build/bin</value>
    </valuemap>
