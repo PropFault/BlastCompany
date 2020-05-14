@@ -1,3 +1,0 @@
-/home/benedikt/BlastCompany/build/CMakeFiles/rebuild_cache.dir
-/home/benedikt/BlastCompany/build/CMakeFiles/BlastCompany.dir
-/home/benedikt/BlastCompany/build/CMakeFiles/edit_cache.dir
