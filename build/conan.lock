@@ -1,0 +1,78 @@
+{
+ "profile": "[settings]\narch=x86_64\narch_build=x86_64\nbuild_type=Debug\ncompiler=clang\ncompiler.libcxx=libstdc++11\ncompiler.version=7.0\nos=Linux\nos_build=Linux\n[options]\n[build_requires]\n[env]\n",
+ "graph_lock": {
+  "nodes": {
+   "359b00ec-961a-11ea-aef2-000c29361466": {
+    "pref": "zlib/1.2.9@conan/stable#0:35437353b857392790f3121d268b1db3fb9a09b0#0",
+    "options": "fPIC=True\nshared=False"
+   },
+   "359b02a4-961a-11ea-aef2-000c29361466": {
+    "pref": "fmt/5.3.0@bincrafters/stable#0:0e4b37fed2418692fca237108ab0fad3283043c2#c6096dccd7a44fe116d4c615eb83544a",
+    "options": "fPIC=True\nheader_only=False\nshared=False\nwith_fmt_alias=False"
+   },
+   "359b063c-961a-11ea-aef2-000c29361466": {
+    "pref": null,
+    "options": "libjpeg-turbo:SIMD=True\nlibjpeg-turbo:arithmetic_decoder=True\nlibjpeg-turbo:arithmetic_encoder=True\nlibjpeg-turbo:enable12bit=False\nlibjpeg-turbo:fPIC=True\nlibjpeg-turbo:java=False\nlibjpeg-turbo:libjpeg7_compatibility=True\nlibjpeg-turbo:libjpeg8_compatibility=True\nlibjpeg-turbo:mem_src_dst=True\nlibjpeg-turbo:shared=False\nlibjpeg-turbo:turbojpeg=True\nlibpng:api_prefix=None\nlibpng:fPIC=True\nlibpng:shared=False\nlibtiff:fPIC=True\nlibtiff:shared=False\nlibwebp:fPIC=True\nlibwebp:near_lossless=True\nlibwebp:shared=False\nlibwebp:swap_16bit_csp=False\nlibwebp:with_simd=True\nsdl2:alsa=True\nsdl2:arts=False\nsdl2:directfb=False\nsdl2:esd=False\nsdl2:fPIC=True\nsdl2:iconv=False\nsdl2:jack=True\nsdl2:nas=True\nsdl2:pulse=True\nsdl2:sdl2main=True\nsdl2:shared=False\nsdl2:video_rpi=False\nsdl2:wayland=False\nsdl2:x11=True\nsdl2:xcursor=True\nsdl2:xinerama=True\nsdl2:xinput=True\nsdl2:xrandr=True\nsdl2:xscrnsaver=True\nsdl2:xshape=True\nsdl2:xvm=True\nsdl2_image:bmp=True\nsdl2_image:fPIC=True\nsdl2_image:gif=True\nsdl2_image:jpg=libjpeg-turbo\nsdl2_image:lbm=True\nsdl2_image:pcx=True\nsdl2_image:png=True\nsdl2_image:pnm=True\nsdl2_image:shared=False\nsdl2_image:svg=True\nsdl2_image:tga=True\nsdl2_image:tif=True\nsdl2_image:webp=True\nsdl2_image:xcf=True\nsdl2_image:xpm=True\nsdl2_image:xv=True\nzlib:fPIC=True\nzlib:shared=False",
+    "requires": {
+     "sdl2/2.0.10@bincrafters/stable#0": "359b0312-961a-11ea-aef2-000c29361466",
+     "zlib/1.2.9@conan/stable#0": "359b00ec-961a-11ea-aef2-000c29361466",
+     "libpng/1.6.37@bincrafters/stable#0": "359b039e-961a-11ea-aef2-000c29361466",
+     "libtiff/4.0.9@bincrafters/stable#0": "359b03f8-961a-11ea-aef2-000c29361466",
+     "spdlog/1.3.1@bincrafters/stable#0": "359b0452-961a-11ea-aef2-000c29361466",
+     "Catch2/2.11.1@catchorg/stable#0": "359b04a2-961a-11ea-aef2-000c29361466",
+     "sdl2_image/2.0.5@bincrafters/stable#0": "359b0506-961a-11ea-aef2-000c29361466"
+    }
+   },
+   "359b04a2-961a-11ea-aef2-000c29361466": {
+    "pref": "Catch2/2.11.1@catchorg/stable#0:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9#0",
+    "options": ""
+   },
+   "359b07a4-961a-11ea-aef2-000c29361466": {
+    "pref": "libjpeg-turbo/1.5.2@bincrafters/stable#0:66f0c6a7a1d63ec930d3d7e93a1313e2f47b3daa#0",
+    "options": "SIMD=True\narithmetic_decoder=True\narithmetic_encoder=True\nenable12bit=False\nfPIC=True\njava=False\nlibjpeg7_compatibility=True\nlibjpeg8_compatibility=True\nmem_src_dst=True\nshared=False\nturbojpeg=True"
+   },
+   "359b039e-961a-11ea-aef2-000c29361466": {
+    "pref": "libpng/1.6.37@bincrafters/stable#0:90cb27019473e527473a04591528c6cd6de29131#0",
+    "options": "api_prefix=None\nfPIC=True\nshared=False\nzlib:fPIC=True\nzlib:shared=False",
+    "requires": {
+     "zlib/1.2.9@conan/stable#0": "359b00ec-961a-11ea-aef2-000c29361466"
+    }
+   },
+   "359b0452-961a-11ea-aef2-000c29361466": {
+    "pref": "spdlog/1.3.1@bincrafters/stable#0:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9#0",
+    "options": "fmt:fPIC=True\nfmt:header_only=False\nfmt:shared=False\nfmt:with_fmt_alias=False",
+    "requires": {
+     "fmt/5.3.0@bincrafters/stable#0": "359b02a4-961a-11ea-aef2-000c29361466"
+    }
+   },
+   "359b0506-961a-11ea-aef2-000c29361466": {
+    "pref": "sdl2_image/2.0.5@bincrafters/stable#0:f69f0a75add15c51b9a891e5104620af1f55853b#0",
+    "options": "bmp=True\nfPIC=True\ngif=True\njpg=libjpeg-turbo\nlbm=True\npcx=True\npng=True\npnm=True\nshared=False\nsvg=True\ntga=True\ntif=True\nwebp=True\nxcf=True\nxpm=True\nxv=True\nlibjpeg-turbo:SIMD=True\nlibjpeg-turbo:arithmetic_decoder=True\nlibjpeg-turbo:arithmetic_encoder=True\nlibjpeg-turbo:enable12bit=False\nlibjpeg-turbo:fPIC=True\nlibjpeg-turbo:java=False\nlibjpeg-turbo:libjpeg7_compatibility=True\nlibjpeg-turbo:libjpeg8_compatibility=True\nlibjpeg-turbo:mem_src_dst=True\nlibjpeg-turbo:shared=False\nlibjpeg-turbo:turbojpeg=True\nlibpng:api_prefix=None\nlibpng:fPIC=True\nlibpng:shared=False\nlibtiff:fPIC=True\nlibtiff:shared=False\nlibwebp:fPIC=True\nlibwebp:near_lossless=True\nlibwebp:shared=False\nlibwebp:swap_16bit_csp=False\nlibwebp:with_simd=True\nsdl2:alsa=True\nsdl2:arts=False\nsdl2:directfb=False\nsdl2:esd=False\nsdl2:fPIC=True\nsdl2:iconv=False\nsdl2:jack=True\nsdl2:nas=True\nsdl2:pulse=True\nsdl2:sdl2main=True\nsdl2:shared=False\nsdl2:video_rpi=False\nsdl2:wayland=False\nsdl2:x11=True\nsdl2:xcursor=True\nsdl2:xinerama=True\nsdl2:xinput=True\nsdl2:xrandr=True\nsdl2:xscrnsaver=True\nsdl2:xshape=True\nsdl2:xvm=True\nzlib:fPIC=True\nzlib:shared=False",
+    "requires": {
+     "sdl2/2.0.10@bincrafters/stable#0": "359b0312-961a-11ea-aef2-000c29361466",
+     "libtiff/4.0.9@bincrafters/stable#0": "359b03f8-961a-11ea-aef2-000c29361466",
+     "libjpeg-turbo/1.5.2@bincrafters/stable#0": "359b07a4-961a-11ea-aef2-000c29361466",
+     "libpng/1.6.37@bincrafters/stable#0": "359b039e-961a-11ea-aef2-000c29361466",
+     "libwebp/1.0.3@bincrafters/stable#0": "359b0934-961a-11ea-aef2-000c29361466",
+     "zlib/1.2.9@conan/stable#0": "359b00ec-961a-11ea-aef2-000c29361466"
+    }
+   },
+   "359b0312-961a-11ea-aef2-000c29361466": {
+    "pref": "sdl2/2.0.10@bincrafters/stable#0:3e751c1a2a518677ed385cac4522686ec9c69220#0",
+    "options": "alsa=True\narts=False\ndirectfb=False\nesd=False\nfPIC=True\niconv=False\njack=True\nnas=True\npulse=True\nsdl2main=True\nshared=False\nvideo_rpi=False\nwayland=False\nx11=True\nxcursor=True\nxinerama=True\nxinput=True\nxrandr=True\nxscrnsaver=True\nxshape=True\nxvm=True"
+   },
+   "359b03f8-961a-11ea-aef2-000c29361466": {
+    "pref": "libtiff/4.0.9@bincrafters/stable#0:90cb27019473e527473a04591528c6cd6de29131#0",
+    "options": "fPIC=True\nshared=False\nzlib:fPIC=True\nzlib:shared=False",
+    "requires": {
+     "zlib/1.2.9@conan/stable#0": "359b00ec-961a-11ea-aef2-000c29361466"
+    }
+   },
+   "359b0934-961a-11ea-aef2-000c29361466": {
+    "pref": "libwebp/1.0.3@bincrafters/stable#0:32cbdfec6aafa873936a4f5b876d4859dc18651e#0",
+    "options": "fPIC=True\nnear_lossless=True\nshared=False\nswap_16bit_csp=False\nwith_simd=True"
+   }
+  }
+ },
+ "version": "0.1"
+}
