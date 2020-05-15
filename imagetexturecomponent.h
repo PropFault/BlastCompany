@@ -15,17 +15,13 @@ public:
     ImageTextureComponent& operator=(const ImageTextureComponent& othr);
     // Component interface
 public:
-    std::string getName();
     Component *clone();
+    void init(nlohmann::json json);
+    void deinit();
 
     // Texture interface
 public:
     SDL_Texture *getSDLTexture() const;
-
-    // Component interface
-public:
-    init(nlohmann::json json);
-    deinit(nlohmann::json json);
 };
 
 #endif // IMAGETEXTURECOMPONENT_H

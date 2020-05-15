@@ -2,7 +2,15 @@ Todo:
 1. ImageTextureComponent:
  > Needs to be correlated to a mesh or rectangle of some sort. Needs to be specific
  > Needs to be able to be instantiated like any other component
-2. Give Components random ids
+2. Give Components random ids DONE
 3. Entities
 4. Some sort of component / entity manager
 5. Blueprint components
+
+
+NOTES:
+ Need to find a efficient way of doing the following lookups:
+  1. CID -> Comp*
+  2. CName -> List<CID>
+  3. Entity -> List<CID>
+  4. CID -> Entity
