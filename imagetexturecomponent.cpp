@@ -23,7 +23,7 @@ Component *ImageTextureComponent::clone()
     return new ImageTextureComponent(*this);
 }
 
-void ImageTextureComponent::init(nlohmann::json json)
+void ImageTextureComponent::_init(nlohmann::json json)
 {
     string path = json[ARG_FILEPATH].get<std::string>();
     SDL_Surface* surf = IMG_Load(path.c_str());
@@ -36,7 +36,7 @@ void ImageTextureComponent::init(nlohmann::json json)
 
 }
 
-void ImageTextureComponent::deinit()
+void ImageTextureComponent::_deinit()
 {
     if(this->texture != NULL){
         SDL_DestroyTexture(this->texture);

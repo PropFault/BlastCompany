@@ -9,18 +9,21 @@
 #include <nlohmann/json.hpp>
 #include "namecomponent.h"
 #include <fstream>
+#include <vector>
+#include "eid.h"
+
+//This is literally the worst class in the entire program
+//too many responsibilities and way too many maps which can lead to errors.
 
 class EntityComponentManager
 {
-public:
-    typedef unsigned long long CID;
-    typedef unsigned long long EID;
+
 private:
 
     HashMap<std::string, Component*> blueprints;
-    HashMap<CID, Component*> cidLookup;
-    HashMap<std::string, std::unordered_set<CID>> typeLookup;
-    HashMap<EID, std::unordered_set<CID>> entityLookup;
+    HashMap<Component::CID, Component*> cidLookup;
+    HashMap<std::string, std::unordered_set<Component::CID>> typeLookup;
+    HashMap<Entity::EID, std::unordered_set<Component::CID>> entityLookup;
 public:
     EntityComponentManager(){
         this->registerBlueprint(new NameComponent());
@@ -49,43 +52,47 @@ public:
         this->blueprints.insert(comp->getTypeName(), comp);
     }
 
-    EID createNewEntity(const std::string& name){
+    Entity::EID createNewEntity(const std::string& name){
         std::random_device rd;
         unsigned int seed = rd();
         std::default_random_engine engine(seed);
         std::uniform_int_distribution<long long unsigned> distrib(0, 0xFFFFFFFFFFFFFFFF);
-        EID newEnt = distrib(engine);
+        Entity::EID newEnt = distrib(engine);
         std::cout<<"NEW ENTITY: " << newEnt<<std::endl;
-        this->entityLookup.insert(newEnt, std::unordered_set<CID>());
+        this->entityLookup.insert(newEnt, std::unordered_set<Component::CID>());
         nlohmann::json json;
         json["name"] = name;
         this->addComponentToEntity(newEnt, "name", json);
         return newEnt;
     }
     
-    EID createEntityFromFile(const std::string &filePath){
-        std::ifstream f(filePath);
-        nlohmann::json json;
-        f>>json;
-        
+    Entity::EID createEntityFromFile(const nlohmann::json &json){
+        std::cout<<json<<std::endl;
+        std::string name = json["name"].get<std::string>();
+        Entity::EID entity = createNewEntity(name);
+        for(const auto& component : json["components"]){
+            std::string type = component["type"].get<std::string>();
+            this->addComponentToEntity(entity,type,component["init"]);
+        }
+        return entity;
     }
 
-    std::string lookupEntityName(EID entity){
-        std::unordered_set<CID> &entityCID = this->entityLookup.get(entity);
-        for(CID id : this->lookupCIDsForType("name")){
+    std::string lookupEntityName(Entity::EID entity){
+        std::unordered_set<Component::CID> &entityCID = this->entityLookup.get(entity);
+        for(Component::CID id : this->lookupCIDsForType("name")){
             auto foundElement = entityCID.find(id);
             if(foundElement!= entityCID.end())
                 return this->lookupCID<NameComponent>(*foundElement)->getName();
         }
+        throw new LookupFailedException("Could not find entity");
     }
 
-    void addComponentToEntity(EID entity, const std::string& componentType, const nlohmann::json& initData){
+    void addComponentToEntity(Entity::EID entity, const std::string& componentType, const nlohmann::json& initData){
         try {
             Component* blueprint = this->blueprints.get(componentType);
-
             Component* newComponent = blueprint->clone();
             try {
-                newComponent->init(initData);
+                newComponent->init(entity,initData);
             } catch (const std::runtime_error& err) {
                 throw InitFailedException(err.what());
             }{}
@@ -95,7 +102,7 @@ public:
             try{
                 this->typeLookup.get(componentType).insert(newComponent->getId());
             }catch(const std::runtime_error &e){
-                this->typeLookup.insert(componentType, std::unordered_set<CID>());
+                this->typeLookup.insert(componentType, std::unordered_set<Component::CID>());
                 this->typeLookup.get(componentType).insert(newComponent->getId());
             }
 
@@ -104,14 +111,15 @@ public:
         }
     }
 
-    std::unordered_set <CID> lookupCIDsForType(const std::string &type){
+    std::unordered_set <Component::CID> lookupCIDsForType(const std::string &type){
         return this->typeLookup.get(type);
     }
 
     template<typename T>
-    T* lookupCID(CID id){
+    T* lookupCID(Component::CID id){
         return (T*)this->cidLookup.get(id);
     }
+
 
 
 };

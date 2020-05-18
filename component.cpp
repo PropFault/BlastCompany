@@ -5,8 +5,15 @@ using namespace std;
 unsigned long long Component::getId(){
     return this->id;
 }
+
+
+Entity::EID Component::getEntity() const
+{
+    return entity;
+}
+
 Component::Component(const std::string name)
-    :typeName(name)
+    :typeName(name), entity(0)
 {
     random_device rd;
     unsigned int seed = rd();
@@ -20,4 +27,16 @@ Component::Component(const std::string name)
 std::string Component::getTypeName()const
 {
     return this->typeName;
+}
+
+void Component::init(Entity::EID eid, nlohmann::json json)
+{
+    this->entity = eid;
+    this->_init(json);
+}
+
+void Component::deinit()
+{
+    this->entity = 0;
+    this->_deinit();
 }

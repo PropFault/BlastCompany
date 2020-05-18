@@ -2,45 +2,45 @@
 
 
 
-Quad::Quad(const Vector &upLeft, const Vector &upRight, const Vector &downLeft, const Vector &downRight)
+Quad::Quad(const Vec2 &upLeft, const Vec2 &upRight, const Vec2 &downLeft, const Vec2 &downRight)
     :upLeft(upLeft), upRight(upRight), downLeft(downLeft), downRight(downRight){}
 
-const Vector &Quad::getUpLeft() const
+const Vec2 &Quad::getUpLeft() const
 {
     return this->upLeft;
 }
 
-const Vector &Quad::getUpRight() const
+const Vec2 &Quad::getUpRight() const
 {
     return this->upRight;
 }
 
-const Vector &Quad::getDownLeft() const
+const Vec2 &Quad::getDownLeft() const
 {
     return this->downLeft;
 }
 
-const Vector &Quad::getDownRight() const
+const Vec2 &Quad::getDownRight() const
 {
     return this->downRight;
 }
 
-const void Quad::setUpLeft(const Vector &nVec)
+const void Quad::setUpLeft(const Vec2 &nVec)
 {
     this->upLeft = nVec;
 }
 
-const void Quad::setUpRight(const Vector &nVec)
+const void Quad::setUpRight(const Vec2 &nVec)
 {
     this->upRight = nVec;
 }
 
-const void Quad::setDownLeft(const Vector &nVec)
+const void Quad::setDownLeft(const Vec2 &nVec)
 {
     this->downLeft = nVec;
 }
 
-const void Quad::setDownRight(const Vector &nVec)
+const void Quad::setDownRight(const Vec2 &nVec)
 {
     this->downRight = nVec;
 }

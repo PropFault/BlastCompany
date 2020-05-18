@@ -17,9 +17,9 @@ public:
     // Component interface
 public:
     Component *clone();
-    void init(nlohmann::json json);
-    void deinit();
-
+private:
+    void _init(nlohmann::json json);
+    void _deinit();
     // Texture interface
 public:
     SDL_Texture *getSDLTexture() const;

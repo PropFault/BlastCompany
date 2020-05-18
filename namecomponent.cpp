@@ -11,13 +11,13 @@ Component *NameComponent::clone()
     return new NameComponent;
 }
 
-void NameComponent::init(nlohmann::json json)
+void NameComponent::_init(nlohmann::json json)
 {
     std::cout<<json<<std::endl;
     this->typeName = json["name"].get<std::string>();
 }
 
-void NameComponent::deinit()
+void NameComponent::_deinit()
 {
     this->typeName = "UNNAMED";
 }

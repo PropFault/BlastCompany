@@ -2,18 +2,18 @@
 #define POINT_H
 #include <ostream>
 
-class Vector
+class Vec2
 {
 private:
     float x;
     float y;
 public:
-    Vector(float x, float y);
+    Vec2(float x, float y);
     float getX() const;
     float getY() const;
     float setX(float x);
     float setY(float y);
-    friend std::ostream& operator<<(std::ostream& os, const Vector& dt);
+    friend std::ostream& operator<<(std::ostream& os, const Vec2& dt);
 };
 
 

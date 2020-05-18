@@ -1,17 +1,17 @@
 #ifndef RECT_H
 #define RECT_H
-#include "vector.h"
+#include "vec2.h"
 
 class Rect
 {
 private:
     float width;
     float height;
-    Vector origin;
+    Vec2 origin;
 public:
-    Rect(const Vector& origin, float width, float height);
-    Vector getOrigin() const;
-    void setOrigin(const Vector &value);
+    Rect(const Vec2& origin, float width, float height);
+    Vec2 getOrigin() const;
+    void setOrigin(const Vec2 &value);
     float getHeight() const;
     void setHeight(float value);
     float getWidth() const;

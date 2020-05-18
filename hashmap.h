@@ -68,7 +68,7 @@ public:
     v &get(const k &key){
         return this->getNode(key).getValue();
     }
-    void insert(const k &key,const v& value){
+    v& insert(const k &key,const v& value = v()){
         if(!(this->usedSpaces < this->totalSlots)){
             this->resize(this->totalSlots + HashMap::RESIZE_STEP);
         }
@@ -93,12 +93,28 @@ public:
             if(attempts >= attemptLimit)
                 throw std::runtime_error("could not insert. attempt limit reached. unable to locate slot.");
         }while(!slotInserted);
+        return this->get(key);
     }
     void erase(const k &key)
     {
         this->getNode(key).clear();
     }
 
+    v& insertIfNotExists(const k &key,const v& value = v()){
+        if(containsKey(key))
+            return this->get(key);
+        this->insert(key,value);
+        return this->get(key)
+    }
+
+    bool containsKey(const k& key){
+        try {
+            this->get(key);
+            return true;
+        } catch (const std::runtime_error &ex) {
+            return false;
+        }{}
+    }
     ~HashMap()
     {
         delete[] this->dataSet;

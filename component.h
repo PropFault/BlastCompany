@@ -3,20 +3,27 @@
 #include <string>
 #include <nlohmann/json.hpp>
 #include <random>
-
+#include "eid.h"
 class Component
 {
+public:
+    typedef unsigned long long CID;
 private:
     std::string typeName;
-    unsigned long long id;
+    CID id;
+    Entity::EID entity;
+    virtual void _init(nlohmann::json json) = 0;
+    virtual void _deinit() = 0;
 public:
+
     Component(const std::string typeName);
     virtual std::string getTypeName()const;
     virtual Component* clone()=0;
-    virtual void init(nlohmann::json json) = 0;
-    virtual void deinit() = 0;
+    void init(Entity::EID eid, nlohmann::json json);
+    void deinit();
     unsigned long long getId();
     virtual ~Component(){}
+    Entity::EID getEntity() const;
 };
 
 #endif // COMPONENT_H

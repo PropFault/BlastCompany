@@ -1,17 +1,17 @@
 #include "rect.h"
 
-Rect::Rect(const Vector &origin, float width, float height)
+Rect::Rect(const Vec2 &origin, float width, float height)
     :origin(origin), width(width), height(height)
 {
 
 }
 
-Vector Rect::getOrigin() const
+Vec2 Rect::getOrigin() const
 {
     return origin;
 }
 
-void Rect::setOrigin(const Vector &value)
+void Rect::setOrigin(const Vec2 &value)
 {
     origin = value;
 }
