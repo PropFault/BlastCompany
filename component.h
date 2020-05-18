@@ -7,11 +7,11 @@
 class Component
 {
 private:
-    std::string name;
+    std::string typeName;
     unsigned long long id;
 public:
-    Component(const std::string name);
-    virtual std::string getName()const;
+    Component(const std::string typeName);
+    virtual std::string getTypeName()const;
     virtual Component* clone()=0;
     virtual void init(nlohmann::json json) = 0;
     virtual void deinit() = 0;

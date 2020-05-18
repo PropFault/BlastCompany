@@ -5,6 +5,8 @@ using namespace std;
 
 Window::Window(const string& title, int x, int y, int w, int h, Mode mode)
 {
+    SDL_Init( SDL_INIT_EVERYTHING);
+
     this->sdlWindow = SDL_CreateWindow(title.c_str(), x,y,w,h,mode);
 }
 

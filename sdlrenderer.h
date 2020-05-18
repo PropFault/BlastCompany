@@ -8,7 +8,7 @@ private:
     SDL_Renderer *sdlRenderer;
     int pixelPerUnit;
 public:
-    SDLRenderer(SDL_Renderer* owningRenderer, int virtViewportW = 1280, int virtViewportH = 720, int pixelPerUnit = 50, bool forceViewportPerfectIntegers = true);
+    SDLRenderer(SDL_Renderer* owningRenderer, int virtViewportW = 1280, int virtViewportH = 720, int pixelPerUnit = 100, bool forceViewportPerfectIntegers = false);
     SDLRenderer(const SDLRenderer& othr) = delete;
     void renderRect(const Rect &rect, const Texture &texs);
     int getPixelPerUnit() const;

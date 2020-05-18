@@ -10,6 +10,7 @@ private:
     SDL_Texture *texture;
     SDL_Renderer *renderer;
 public:
+    static const std::string ARG_FILEPATH;
     ImageTextureComponent(SDL_Renderer *renderer);
     ImageTextureComponent(const ImageTextureComponent& othr);
     ImageTextureComponent& operator=(const ImageTextureComponent& othr);

@@ -6,7 +6,7 @@ unsigned long long Component::getId(){
     return this->id;
 }
 Component::Component(const std::string name)
-    :name(name)
+    :typeName(name)
 {
     random_device rd;
     unsigned int seed = rd();
@@ -14,10 +14,10 @@ Component::Component(const std::string name)
     default_random_engine engine(seed);
     uniform_int_distribution<long long unsigned> distrib(0, 0xFFFFFFFFFFFFFFFF);
     this->id = distrib(engine);
-    cout<<"Created new component("<<this->name<<") ID:"<<this->id<<endl;
+    cout<<"Created new component("<<this->typeName<<") ID:"<<this->id<<endl;
 }
 
-std::string Component::getName()const
+std::string Component::getTypeName()const
 {
-    return this->name;
+    return this->typeName;
 }
