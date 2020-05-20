@@ -14,9 +14,21 @@ float Vec2::getX() const{
 float Vec2::getY() const{
     return this->y;
 }
-float Vec2::setX(float x){
+void Vec2::setX(float x){
     this->x = x;
 }
-float Vec2::setY(float y){
+void Vec2::setY(float y){
     this->y = y;
+}
+
+Vec2 &Vec2::operator+=(const Vec2 &othr)
+{
+    this->x += othr.x;
+    this->y += othr.y;
+    return *this;
+}
+
+Vec2 Vec2::operator+(const Vec2 &othr)
+{
+    return Vec2(*this)+=othr;
 }

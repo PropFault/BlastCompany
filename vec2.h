@@ -11,9 +11,11 @@ public:
     Vec2(float x, float y);
     float getX() const;
     float getY() const;
-    float setX(float x);
-    float setY(float y);
+    void setX(float x);
+    void setY(float y);
     friend std::ostream& operator<<(std::ostream& os, const Vec2& dt);
+    Vec2 & operator+=(const Vec2 &othr);
+    Vec2 operator+(const Vec2 &othr);
 };
 
 

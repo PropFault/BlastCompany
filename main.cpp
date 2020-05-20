@@ -15,6 +15,11 @@
 #include <nlohmann/json.hpp>
 #include "transformcomponent.h"
 #include "eid.h"
+#include "systempipeline.h"
+#include "transformsystem.h"
+#include "planerendersystem.h"
+#include "planecomponent.h"
+
 using namespace std;
 using namespace nlohmann;
 int main()
@@ -32,17 +37,20 @@ int main()
 
     ecs.registerBlueprint(new ImageTextureComponent(sdlRenderer));
     ecs.registerBlueprint(new TransformComponent());
+    ecs.registerBlueprint(new PlaneComponent());
     cout<<"nothing exploded yet."<<endl;
     nlohmann::json json;
     json[ImageTextureComponent::ARG_FILEPATH] = "sdl_logo.png";
     ecs.addComponentToEntity(babiesFirstEntity, Texture::COMPONENT_IDENTIFIER, json);
     ecs.createEntityFromFile(filej);
-    for(Component::CID cid : ecs.lookupCIDsForType(Texture::COMPONENT_IDENTIFIER)){
-            cout<<"ENTITY: " << ecs.lookupEntityName(babiesFirstEntity);
-            cout<<"GOT COMPONENT WITH ID " << cid<<endl;
-            cout<<"OBJ " << ecs.lookupCID<ImageTextureComponent>(cid)->getTypeName()<<endl;
-            renderer.renderRect(Rect(Vec2(0,0),1,1),*ecs.lookupCID<ImageTextureComponent>(cid));
-    }
+
+    SystemPipeline pipeline;
+    pipeline.add(new TransformSystem());
+    pipeline.add(new PlaneRenderSystem(renderer));
+
+    pipeline.think(ecs);
+
+
     renderer.present();
     cout<<SDL_GetError()<< "|" << IMG_GetError()<<endl;
     getchar();

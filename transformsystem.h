@@ -10,7 +10,7 @@ public:
 
     // System interface
 public:
-    void think(EntityComponentManager &ecs, const std::vector<Component::CID>& typedComponents, DataPack &dataPack);
+    void think(EntityComponentManager &ecs, const std::unordered_set<Component::CID>& typedComponents, DataPack &dataPack);
 };
 
 #endif // POSITIONSYSTEM_H

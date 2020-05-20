@@ -2,16 +2,16 @@
 #define TEXTURERENDERSYSTEM_H
 #include "system.h"
 #include "sdlrenderer.h"
-class TextureRenderSystem : public System
+class PlaneRenderSystem : public System
 {
 private:
     SDLRenderer &renderer;
 public:
-    TextureRenderSystem(SDLRenderer &renderer);
+    PlaneRenderSystem(SDLRenderer &renderer);
 
     // System interface
 public:
-    void think(EntityComponentManager &ecs, const std::vector<Component::CID> &typedComponents, DataPack &dataPack);
+    void think(EntityComponentManager &ecs, const std::unordered_set<Component::CID> &typedComponents, DataPack &dataPack);
 };
 
 #endif // TEXTURERENDERSYSTEM_H

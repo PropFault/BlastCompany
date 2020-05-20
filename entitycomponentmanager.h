@@ -24,6 +24,8 @@ private:
     HashMap<Component::CID, Component*> cidLookup;
     HashMap<std::string, std::unordered_set<Component::CID>> typeLookup;
     HashMap<Entity::EID, std::unordered_set<Component::CID>> entityLookup;
+
+
 public:
     EntityComponentManager(){
         this->registerBlueprint(new NameComponent());
@@ -66,10 +68,15 @@ public:
         return newEnt;
     }
     
+
+
     Entity::EID createEntityFromFile(const nlohmann::json &json){
         std::cout<<json<<std::endl;
         std::string name = json["name"].get<std::string>();
+
         Entity::EID entity = createNewEntity(name);
+
+
         for(const auto& component : json["components"]){
             std::string type = component["type"].get<std::string>();
             this->addComponentToEntity(entity,type,component["init"]);
@@ -112,7 +119,11 @@ public:
     }
 
     std::unordered_set <Component::CID> lookupCIDsForType(const std::string &type){
-        return this->typeLookup.get(type);
+        try{
+            return this->typeLookup.get(type);
+        }catch(const std::runtime_error &ex){
+            return std::unordered_set<Component::CID>();
+        }
     }
 
     template<typename T>

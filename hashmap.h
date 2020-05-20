@@ -59,7 +59,7 @@ public:
         delete[] this->dataSet;
         this->totalSlots = other.totalSlots;
         this->usedSpaces = other.usedSpaces;
-        this->dataSet = new v[this->totalSlots];
+        this->dataSet = new HashNode<k,v>[this->totalSlots];
         for(size_t i = 0; i < other.totalSlots; i++){
             this->dataSet[i] = other.dataSet[i];
         }
@@ -103,8 +103,7 @@ public:
     v& insertIfNotExists(const k &key,const v& value = v()){
         if(containsKey(key))
             return this->get(key);
-        this->insert(key,value);
-        return this->get(key)
+        return this->insert(key,value);
     }
 
     bool containsKey(const k& key){

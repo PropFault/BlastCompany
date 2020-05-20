@@ -4,20 +4,16 @@
 #include "component.h"
 #include "vec2.h"
 #include <string>
+#include "transform.h"
 
-class TransformComponent : public Component
+class TransformComponent : public Transform, public Component
 {
-private:
-    Vec2 position;
-    Vec2 scale;
+
 public:
     const static std::string ARG_POSITION;
     const static std::string ARG_SCALE;
     TransformComponent(const Vec2 position = Vec2(0,0), const Vec2 scale = Vec2(1,1));
-    void setPosition(const Vec2 &value);
-    void setScale(const Vec2 &value);
-    Vec2 getPosition() const;
-    Vec2 getScale() const;
+
 
     // Component interface
 public:
