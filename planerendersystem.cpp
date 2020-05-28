@@ -25,8 +25,9 @@ void PlaneRenderSystem::think(EntityComponentManager &ecs, const std::unordered_
         PlaneComponent* plane = ecs.lookupCID<PlaneComponent>(cid);
         Texture* texture = ecs.lookupCID<Texture>(plane->getTextureCID());
         Entity::EID entity = plane->getEntity();
-        if(dataPack.containsKey(entity)&&dataPack.get(entity).containsKey("transform")){
-            const Transform &accumTransform = any_cast<Transform>(dataPack.get(entity).get("transform"));
+        if(dataPack.count(entity)>0&&dataPack.at(entity).count("transform")>0){
+            const Transform &accumTransform = any_cast<Transform>(dataPack.at(entity).at("transform"));
+            texture->getSDLTexture();
             this->renderer.renderRect(getTransformedRect(*plane, accumTransform),*texture);
         }else
             this->renderer.renderRect(*plane,*texture);

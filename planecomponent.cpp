@@ -20,7 +20,7 @@ void PlaneComponent::_init(nlohmann::json json)
 {
     nlohmann::json posjson = json[ARG_POSITION];
     nlohmann::json scalejson = json[ARG_SCALE];
-    this->textureCID = json[ARG_TEXTURE].get<int>();
+    this->textureCID = json[ARG_TEXTURE].get<Component::CID>();
     this->setOrigin(Vec2(posjson["x"],posjson["y"]));
     this->setWidth(scalejson["x"]);
     this->setHeight(scalejson["y"]);

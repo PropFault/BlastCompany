@@ -2,7 +2,6 @@
 #include "window.h"
 #include "sdlrenderer.h"
 #include "rect.h"
-#include "hashmap.h"
 #include <string>
 #include <vector>
 #include <stdexcept>
@@ -19,7 +18,7 @@
 #include "transformsystem.h"
 #include "planerendersystem.h"
 #include "planecomponent.h"
-
+#include <unistd.h>
 using namespace std;
 using namespace nlohmann;
 int main()
@@ -40,8 +39,8 @@ int main()
     ecs.registerBlueprint(new PlaneComponent());
     cout<<"nothing exploded yet."<<endl;
     nlohmann::json json;
-    json[ImageTextureComponent::ARG_FILEPATH] = "sdl_logo.png";
-    ecs.addComponentToEntity(babiesFirstEntity, Texture::COMPONENT_IDENTIFIER, json);
+    /*json[ImageTextureComponent::ARG_FILEPATH] = "sdl_logo.png";
+    ecs.addComponentToEntity(babiesFirstEntity, Texture::COMPONENT_IDENTIFIER, json);*/
     ecs.createEntityFromFile(filej);
 
     SystemPipeline pipeline;
@@ -53,8 +52,8 @@ int main()
 
     renderer.present();
     cout<<SDL_GetError()<< "|" << IMG_GetError()<<endl;
-    getchar();
-    getchar();
+
+    usleep(1000*10000);
 
     return 0;
 }

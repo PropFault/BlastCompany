@@ -14,9 +14,10 @@ void TransformSystem::think(EntityComponentManager &ecs, const std::unordered_se
 {
     for(auto cid: typedComponents){
         TransformComponent* comp = ecs.lookupCID<TransformComponent>(cid);
-        auto& innerMap = dataPack.insertIfNotExists(comp->getEntity());
-        Transform currentSum = any_cast<Transform>(innerMap.insertIfNotExists("transform", Transform()));
+        auto& innerMap = dataPack[comp->getEntity()];
+        innerMap.insert(std::pair("transform", Transform(Vec2(0,0),Vec2(0,0))));
+        Transform currentSum = any_cast<Transform>(innerMap["transform"]);
         currentSum += *comp;
-        innerMap.get("transform") = currentSum;
+        innerMap.at("transform") = currentSum;
     }
 }

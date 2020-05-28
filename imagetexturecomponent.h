@@ -16,13 +16,13 @@ public:
     ImageTextureComponent& operator=(const ImageTextureComponent& othr);
     // Component interface
 public:
-    Component *clone();
+    virtual Component *clone()override;
 private:
-    void _init(nlohmann::json json);
-    void _deinit();
+    virtual void _init(nlohmann::json json)override;
+    virtual void _deinit()override;
     // Texture interface
 public:
-    SDL_Texture *getSDLTexture() const;
+    virtual SDL_Texture *getSDLTexture() const override;
 };
 
 #endif // IMAGETEXTURECOMPONENT_H

@@ -15,6 +15,9 @@ void SystemPipeline::think(EntityComponentManager &ecm)
 {
     System::DataPack pack;
     for(auto system : this->pipeline){
+        const std::unordered_set<Component::CID> & compPack = ecm.lookupCIDsForType(system->getType());
+        if(compPack.size() <= 0)
+            std::cout<<"WARN: NO COMPONENT FOR SYSTEM " << system->getType() << "!";
         system->think(ecm, ecm.lookupCIDsForType(system->getType()), pack);
     }
 }

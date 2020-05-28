@@ -25,6 +25,7 @@ Component *ImageTextureComponent::clone()
 
 void ImageTextureComponent::_init(nlohmann::json json)
 {
+    std::cout<<"INIT IMAGE CONCRETE WITH " << json << std::endl;
     string path = json[ARG_FILEPATH].get<std::string>();
     SDL_Surface* surf = IMG_Load(path.c_str());
     if(surf != NULL){

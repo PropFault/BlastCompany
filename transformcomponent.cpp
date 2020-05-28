@@ -15,7 +15,7 @@ Component *TransformComponent::clone()
 void TransformComponent::_init(nlohmann::json j)
 {
     json position = j[ARG_POSITION];
-    json scale = j[ARG_POSITION];
+    json scale = j[ARG_SCALE];
     this->setPosition( Vec2(position["x"],position["y"]));
     this->setScale(Vec2(scale["x"], scale["y"]));
 }
