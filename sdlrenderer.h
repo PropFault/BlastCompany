@@ -16,6 +16,8 @@ public:
     void present();
     SDLRenderer& operator=(const SDLRenderer &othr) = delete;
     ~SDLRenderer();
+    SDL_Renderer *getSdlRenderer() const;
+    void setSdlRenderer(SDL_Renderer *value);
 };
 
 #endif // RENDERER_H

@@ -19,20 +19,39 @@
 #include "planerendersystem.h"
 #include "planecomponent.h"
 #include <unistd.h>
+#include <boost/dll/import.hpp>
+#include "componentplugin.h"
+#include "componentpluginloader.h"
 using namespace std;
 using namespace nlohmann;
 int main()
 {
+    boost::filesystem::path libPath("./components");
+    /*boost::shared_ptr<ComponentPlugin> plugin;
+
+    plugin = boost::dll::import<ComponentPlugin>(libPath/"testcomponent", "plugin", boost::dll::load_mode::append_decorations);*/
     fstream f("./game/entities/testentity.json");
     json filej;
     f >> filej;
     f.close();
+    fstream jsonF("./components/components.json");
+    json componentDescriptor;
+    jsonF >> componentDescriptor;
+    jsonF.close();
     EntityComponentManager ecs;
     Entity::EID babiesFirstEntity = ecs.createNewEntity("TestEntity");
+
     cout<<"New entity with id: " << babiesFirstEntity << endl;
     Window window("Testscreen", 100,100,600,600, Window::Mode::WINDOWED);
     SDL_Renderer* sdlRenderer = window.createSdlRenderer();
     SDLRenderer renderer(sdlRenderer);
+    SystemPipeline pipeline;
+    pipeline.add(new TransformSystem());
+    ComponentPluginLoader::loadComponentPluginsFromDescriptor(renderer, window, componentDescriptor, ecs, pipeline);
+    pipeline.add(new PlaneRenderSystem(renderer));
+
+
+
 
     ecs.registerBlueprint(new ImageTextureComponent(sdlRenderer));
     ecs.registerBlueprint(new TransformComponent());
@@ -43,17 +62,22 @@ int main()
     ecs.addComponentToEntity(babiesFirstEntity, Texture::COMPONENT_IDENTIFIER, json);*/
     ecs.createEntityFromFile(filej);
 
-    SystemPipeline pipeline;
-    pipeline.add(new TransformSystem());
-    pipeline.add(new PlaneRenderSystem(renderer));
+    SDL_Event evt;
+    clock_t measure = clock();
+    while(true){
+        SDL_PollEvent(&evt);
+        if(evt.type == SDL_QUIT)
+            break;
+        pipeline.think(ecs);
+        renderer.present();
+        while(((clock()-measure)/(double)CLOCKS_PER_SEC)<0.006f){};
+        measure = clock();
+    }
 
-    pipeline.think(ecs);
 
 
-    renderer.present();
     cout<<SDL_GetError()<< "|" << IMG_GetError()<<endl;
 
-    usleep(1000*10000);
 
     return 0;
 }

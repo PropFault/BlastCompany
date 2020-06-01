@@ -40,6 +40,7 @@ private:
     }
     Component* generateNewComponent(const std::string& componentType){
         Component* blueprint = this->blueprints.at(componentType);
+        std::cout<<blueprint->getTypeName()<<std::endl;
         Component* newComponent = blueprint->clone();
         return newComponent;
     }
@@ -87,8 +88,28 @@ public:
     }
     
 
+private:
+    void preprocessJson(nlohmann::json &json, const std::unordered_map<std::string, Component::CID>& componentLinks){
+        for(auto it = json.begin(); it != json.end(); ++it){
+            if(it->is_array()){
+                preprocessJson(*it, componentLinks);
+            }else {
+                try {
+                    if(componentLinks.count(it->get<std::string>())>0){
+                        std::cout<<"trying to replace "<<*it << " with " << componentLinks.at(it->get<std::string>())<<std::endl;
+                        it.value() = componentLinks.at(it->get<std::string>());
+                    }
+                } catch (const nlohmann::detail::type_error &ex) {
+                    std::cout<<ex.what()<<std::endl;
+                }{}
+            }
 
-    Entity::EID createEntityFromFile(const nlohmann::json &json){
+        }
+    }
+public:
+
+    Entity::EID createEntityFromFile(const nlohmann::json &ocJson){
+        nlohmann::json json(ocJson);
         std::cout<<json<<std::endl;
         std::string name = json["name"].get<std::string>();
 
@@ -110,20 +131,25 @@ public:
             }{}
         }
 
-        for(auto it = pregeneratedComponents.begin(); it != pregeneratedComponents.end(); ++it){
-            for(const auto& initPart : it->second){
+       for(auto it = pregeneratedComponents.begin(); it != pregeneratedComponents.end(); ++it){
+            /*for(const auto& initPart : it->second){
                 std::cout<<initPart<<std::endl;
                 try {
-                    std::string stringVal = initPart.second.get<std::string>();
-                    if(componentLinks.count(stringVal) > 0){
-                        it->second[initPart.first] = componentLinks.at(initPart.second);
+                    for(auto innerVal : initPart.second){
+                        std::string stringVal = innerVal.get<std::string>();
+                        if(componentLinks.count(stringVal) > 0){
+                            it->second[initPart.first] = componentLinks.at(initPart.second);
+                        }
                     }
+
                 } catch (const nlohmann::detail::type_error &ex) {
                     std::cout<<ex.what()<<std::endl;
                 }{}
-            }
-            std::cout<<it->second<<std::endl;
-            initAndLinkComponent(entity,it->first, it->second);
+            }*/
+            nlohmann::json lvalue(it->second);
+            preprocessJson(lvalue, componentLinks);
+            std::cout<<lvalue<<std::endl;
+            initAndLinkComponent(entity,it->first, lvalue);
         }
         return entity;
     }
@@ -154,13 +180,13 @@ public:
     std::unordered_set <Component::CID> lookupCIDsForType(const std::string &type){
         try{
             return this->typeLookup.at(type);
-        }catch(const std::runtime_error &ex){
+        }catch(const std::out_of_range &ex){
             return std::unordered_set<Component::CID>();
         }
     }
 
     template<typename T>
-    T* lookupCID(Component::CID id){
+    T* lookupCID(Component::CID id)const{
         return dynamic_cast<T*>(this->cidLookup.at(id));
     }
 

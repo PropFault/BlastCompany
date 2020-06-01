@@ -12,12 +12,24 @@ void SDLRenderer::setPixelPerUnit(int value)
 
 void SDLRenderer::present()
 {
+    SDL_SetRenderDrawColor(this->sdlRenderer, 255,255,255,255);z
     SDL_RenderPresent(this->sdlRenderer);
+    SDL_RenderClear(this->sdlRenderer);
 }
 
 SDLRenderer::~SDLRenderer()
 {
     SDL_DestroyRenderer(this->sdlRenderer);
+}
+
+SDL_Renderer *SDLRenderer::getSdlRenderer() const
+{
+    return sdlRenderer;
+}
+
+void SDLRenderer::setSdlRenderer(SDL_Renderer *value)
+{
+    sdlRenderer = value;
 }
 
 SDLRenderer::SDLRenderer(SDL_Renderer *owningRenderer, int virtViewportW, int virtViewportH, int pixelPerUnit, bool forceIntScaling)

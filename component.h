@@ -12,6 +12,7 @@ private:
     std::string typeName;
     CID id;
     Entity::EID entity;
+protected:
     virtual void _init(nlohmann::json json) = 0;
     virtual void _deinit() = 0;
 public:
