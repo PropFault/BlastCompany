@@ -25,6 +25,7 @@ public:
     unsigned long long getId();
     virtual ~Component(){}
     Entity::EID getEntity() const;
+    void regenerateId();
 };
 
 #endif // COMPONENT_H

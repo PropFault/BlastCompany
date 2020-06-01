@@ -12,7 +12,7 @@ void SDLRenderer::setPixelPerUnit(int value)
 
 void SDLRenderer::present()
 {
-    SDL_SetRenderDrawColor(this->sdlRenderer, 255,255,255,255);z
+    SDL_SetRenderDrawColor(this->sdlRenderer, 255,255,255,255);
     SDL_RenderPresent(this->sdlRenderer);
     SDL_RenderClear(this->sdlRenderer);
 }

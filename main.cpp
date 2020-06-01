@@ -30,6 +30,10 @@ int main()
     /*boost::shared_ptr<ComponentPlugin> plugin;
 
     plugin = boost::dll::import<ComponentPlugin>(libPath/"testcomponent", "plugin", boost::dll::load_mode::append_decorations);*/
+    fstream baseball("./game/entities/baseball.json");
+    json baseJ;
+    baseball >> baseJ;
+    baseball.close();
     fstream f("./game/entities/testentity.json");
     json filej;
     f >> filej;
@@ -61,6 +65,17 @@ int main()
     /*json[ImageTextureComponent::ARG_FILEPATH] = "sdl_logo.png";
     ecs.addComponentToEntity(babiesFirstEntity, Texture::COMPONENT_IDENTIFIER, json);*/
     ecs.createEntityFromFile(filej);
+    ecs.createEntityFromFile(baseJ);
+    ecs.createEntityFromFile(baseJ);
+
+    ecs.createEntityFromFile(baseJ);
+
+    for(auto cid : ecs.lookupCIDsForType("transform")){
+        Transform* transform = ecs.lookupCID<Transform>(cid);
+        transform->setPosition(transform->getPosition() + Vec2(rand()%10/100.0f, 0.0));
+    }
+
+    ecs.createEntityFromFile(baseJ);
 
     SDL_Event evt;
     clock_t measure = clock();

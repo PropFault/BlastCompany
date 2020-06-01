@@ -12,8 +12,7 @@ Entity::EID Component::getEntity() const
     return entity;
 }
 
-Component::Component(const std::string name)
-    :typeName(name), entity(0)
+void Component::regenerateId()
 {
     random_device rd;
     unsigned int seed = rd();
@@ -23,6 +22,15 @@ Component::Component(const std::string name)
     this->id = distrib(engine);
     cout<<"Created new component("<<this->typeName<<") ID:"<<this->id<<endl;
 }
+
+Component::Component(const std::string name)
+    :typeName(name), entity(0)
+{
+    this->regenerateId();
+
+}
+
+
 
 std::string Component::getTypeName()const
 {

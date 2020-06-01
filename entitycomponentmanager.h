@@ -42,6 +42,7 @@ private:
         Component* blueprint = this->blueprints.at(componentType);
         std::cout<<blueprint->getTypeName()<<std::endl;
         Component* newComponent = blueprint->clone();
+        newComponent->regenerateId();
         return newComponent;
     }
 
@@ -190,6 +191,9 @@ public:
         return dynamic_cast<T*>(this->cidLookup.at(id));
     }
 
+    std::unordered_set <Component::CID> lookupCIDsForEntity(Entity::EID entity){
+        return this->entityLookup.at(entity);
+    }
 
 
 };
