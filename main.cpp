@@ -22,60 +22,40 @@
 #include <boost/dll/import.hpp>
 #include "componentplugin.h"
 #include "componentpluginloader.h"
+#include "game.h"
+#include "functionmanager.h"
+#include "context.h"
+#include "resourceloader.h"
 using namespace std;
 using namespace nlohmann;
+
+
 int main()
 {
-    boost::filesystem::path libPath("./components");
-    /*boost::shared_ptr<ComponentPlugin> plugin;
-
-    plugin = boost::dll::import<ComponentPlugin>(libPath/"testcomponent", "plugin", boost::dll::load_mode::append_decorations);*/
-    fstream baseball("./game/entities/baseball.json");
-    json baseJ;
-    baseball >> baseJ;
-    baseball.close();
-    fstream f("./game/entities/testentity.json");
-    json filej;
-    f >> filej;
-    f.close();
+    boost::filesystem::path gamePath = ("./game/bin/Game");
+    EntityComponentManager ecs;
+    FunctionManager funcMan;
     fstream jsonF("./components/components.json");
     json componentDescriptor;
     jsonF >> componentDescriptor;
     jsonF.close();
-    EntityComponentManager ecs;
-    Entity::EID babiesFirstEntity = ecs.createNewEntity("TestEntity");
-
-    cout<<"New entity with id: " << babiesFirstEntity << endl;
-    Window window("Testscreen", 100,100,600,600, Window::Mode::WINDOWED);
-    SDL_Renderer* sdlRenderer = window.createSdlRenderer();
-    SDLRenderer renderer(sdlRenderer);
+    Window window("Testscreen", 100,100,1270,720, Window::Mode::WINDOWED);
+    SDLRenderer renderer(window.createSdlRenderer());
+    ResourceLoader resourceLoader(renderer);
+    ecs.registerBlueprint(new ImageTextureComponent(renderer.getSdlRenderer()));
+    ecs.registerBlueprint(new TransformComponent());
+    ecs.registerBlueprint(new PlaneComponent());
     SystemPipeline pipeline;
+    Context context(window, renderer, ecs, pipeline, funcMan, resourceLoader);
     pipeline.add(new TransformSystem());
-    ComponentPluginLoader::loadComponentPluginsFromDescriptor(renderer, window, componentDescriptor, ecs, pipeline);
+    ComponentPluginLoader::loadComponentPluginsFromDescriptor(componentDescriptor, context);
+    boost::shared_ptr<Game> game = boost::dll::import<Game>(gamePath, "game", boost::dll::load_mode::append_decorations);
+    game->start(context);
     pipeline.add(new PlaneRenderSystem(renderer));
 
 
 
 
-    ecs.registerBlueprint(new ImageTextureComponent(sdlRenderer));
-    ecs.registerBlueprint(new TransformComponent());
-    ecs.registerBlueprint(new PlaneComponent());
-    cout<<"nothing exploded yet."<<endl;
-    nlohmann::json json;
-    /*json[ImageTextureComponent::ARG_FILEPATH] = "sdl_logo.png";
-    ecs.addComponentToEntity(babiesFirstEntity, Texture::COMPONENT_IDENTIFIER, json);*/
-    ecs.createEntityFromFile(filej);
-    ecs.createEntityFromFile(baseJ);
-    ecs.createEntityFromFile(baseJ);
-
-    ecs.createEntityFromFile(baseJ);
-
-    for(auto cid : ecs.lookupCIDsForType("transform")){
-        Transform* transform = ecs.lookupCID<Transform>(cid);
-        transform->setPosition(transform->getPosition() + Vec2(rand()%10/100.0f, 0.0));
-    }
-
-    ecs.createEntityFromFile(baseJ);
 
     SDL_Event evt;
     clock_t measure = clock();
@@ -83,14 +63,14 @@ int main()
         SDL_PollEvent(&evt);
         if(evt.type == SDL_QUIT)
             break;
+        game->update();
         pipeline.think(ecs);
         renderer.present();
         while(((clock()-measure)/(double)CLOCKS_PER_SEC)<0.006f){};
         measure = clock();
     }
 
-
-
+    game->end();
     cout<<SDL_GetError()<< "|" << IMG_GetError()<<endl;
 
 

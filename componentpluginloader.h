@@ -9,13 +9,14 @@
 #include "window.h"
 #include <vector>
 #include <boost/shared_ptr.hpp>
+#include "functionmanager.h"
 
 class ComponentPluginLoader
 {
 private:
     static std::vector<boost::shared_ptr<ComponentPlugin>> loadedPlugins;
 public:
-    static void loadComponentPluginsFromDescriptor(const SDLRenderer& renderer, const Window& window, const nlohmann::json &jsonFile, EntityComponentManager &ecm, SystemPipeline &pipeline);
+    static void loadComponentPluginsFromDescriptor( const nlohmann::json &jsonFile, const Context &context);
 };
 
 #endif // COMPONENTPLUGINLOADER_H

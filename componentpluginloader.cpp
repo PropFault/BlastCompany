@@ -6,12 +6,13 @@
 #include "componentplugin.h"
 #include "sdlrenderer.h"
 #include "window.h"
+#include "context.h"
 using namespace boost::filesystem;
 
 
 std::vector<boost::shared_ptr<ComponentPlugin>> ComponentPluginLoader::loadedPlugins;
 
-void ComponentPluginLoader::loadComponentPluginsFromDescriptor(const SDLRenderer& renderer, const Window& window, const nlohmann::json &jsonFile, EntityComponentManager &ecm, SystemPipeline &pipeline)
+void ComponentPluginLoader::loadComponentPluginsFromDescriptor( const nlohmann::json &jsonFile, const Context &context)
 {
 
     boost::filesystem::path libPath = jsonFile.at("componentDirectory");
@@ -21,7 +22,7 @@ void ComponentPluginLoader::loadComponentPluginsFromDescriptor(const SDLRenderer
         ComponentPluginLoader::loadedPlugins.push_back(plugin);
        // std::cout<<"USED: " <<ComponentPluginLoader::loadedPlugins.at(ComponentPluginLoader::loadedPlugins.size()-1).use_count()<<std::endl;
         ComponentPlugin* plug = &*plugin;
-        plug->onRegisterComponents(window,renderer, ecm);
-        plug->onRegisterSystems(pipeline);
+        plug->onRegisterComponents(context);
+        plug->onRegisterSystems(context.getSp());
     }
 }
