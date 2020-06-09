@@ -12,7 +12,7 @@ endif()
 include(${CMAKE_BINARY_DIR}/conan.cmake)
 conan_add_remote(NAME bincrafters INDEX 1
             URL https://api.bintray.com/conan/bincrafters/public-conan)
-conan_cmake_run(REQUIRES sdl2/2.0.10@bincrafters/stable  zlib/1.2.9@conan/stable  boost_any/1.69.0@bincrafters/stable  libpng/1.6.37@bincrafters/stable  libtiff/4.0.9@bincrafters/stable   spdlog/1.3.1@bincrafters/stable   Catch2/2.11.1@catchorg/stable  sdl2_image/2.0.5@bincrafters/stable  nlohmann_json/3.7.3  boost_dll/1.69.0@bincrafters/stable boost_filesystem/1.69.0@bincrafters/stable BASIC_SETUP BUILD missing)
+conan_cmake_run(REQUIRES sdl2/2.0.12@bincrafters/stable bzip2/1.0.6@conan/stable zlib/1.2.11@conan/stable  boost_any/1.69.0@bincrafters/stable  libpng/1.6.37@bincrafters/stable  libtiff/4.0.9@bincrafters/stable   spdlog/1.3.1@bincrafters/stable   Catch2/2.11.1@catchorg/stable  sdl2_image/2.0.5@bincrafters/stable  nlohmann_json/3.7.3  boost_dll/1.69.0@bincrafters/stable boost_filesystem/1.69.0@bincrafters/stable BASIC_SETUP BUILD missing)
 
 add_executable(${PROJECT_NAME} "main.cpp" "quad.cpp" "context.cpp" "vec2.cpp" "rect.cpp" "window.cpp" "resourceloader.cpp" "sdlrenderer.cpp" "functionmanager.cpp" "imagetexturecomponent.cpp" "texture.cpp" "component.cpp" "entitycomponentmanager.cpp" "namecomponent.cpp" "transformcomponent.cpp" "systempipeline.cpp" "system.cpp" "transformsystem.cpp" "planecomponent.cpp" "planerendersystem.cpp" "transform.cpp" "componentpluginloader.cpp")
 target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS})

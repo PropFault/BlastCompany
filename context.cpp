@@ -33,8 +33,18 @@ SDLRenderer &Context::getRenderer() const
 }
 
 
-Context::Context(Window &window, SDLRenderer &renderer, EntityComponentManager &ecm, SystemPipeline &sp, FunctionManager &funcMan, ResourceLoader &resourceLoader)
-    :window(window), renderer(renderer), ecm(ecm), systemPipeline(sp), funcMan(funcMan), resourceLoader(resourceLoader){}
+SDL_Event &Context::getEvent() const
+{
+    return event;
+}
+
+void Context::setEvent(const SDL_Event &value)
+{
+    event = value;
+}
+
+Context::Context(Window &window, SDLRenderer &renderer, EntityComponentManager &ecm, SystemPipeline &sp, FunctionManager &funcMan, ResourceLoader &resourceLoader, SDL_Event &event)
+    :window(window), renderer(renderer), ecm(ecm), systemPipeline(sp), funcMan(funcMan), resourceLoader(resourceLoader), event(event){}
 
 ResourceLoader &Context::getResourceLoader() const
 {

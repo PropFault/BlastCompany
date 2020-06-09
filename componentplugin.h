@@ -5,7 +5,7 @@
 class ComponentPlugin{
 public:
     virtual void onRegisterComponents(const Context &context) = 0;
-    virtual void onRegisterSystems(SystemPipeline &pipeline) = 0;
+    virtual void onRegisterSystems(SystemPipeline &pipeline, const Context &context) = 0;
 };
 
 #endif // COMPONENTPLUGIN_H

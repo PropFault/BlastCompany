@@ -40,13 +40,16 @@ int main()
     jsonF >> componentDescriptor;
     jsonF.close();
     Window window("Testscreen", 100,100,1270,720, Window::Mode::WINDOWED);
+    std::cout<<SDL_GetError()<<std::endl;
     SDLRenderer renderer(window.createSdlRenderer());
     ResourceLoader resourceLoader(renderer);
     ecs.registerBlueprint(new ImageTextureComponent(renderer.getSdlRenderer()));
     ecs.registerBlueprint(new TransformComponent());
     ecs.registerBlueprint(new PlaneComponent());
     SystemPipeline pipeline;
-    Context context(window, renderer, ecs, pipeline, funcMan, resourceLoader);
+    SDL_Event evt;
+
+    Context context(window, renderer, ecs, pipeline, funcMan, resourceLoader,evt);
     pipeline.add(new TransformSystem());
     ComponentPluginLoader::loadComponentPluginsFromDescriptor(componentDescriptor, context);
     boost::shared_ptr<Game> game = boost::dll::import<Game>(gamePath, "game", boost::dll::load_mode::append_decorations);
@@ -57,7 +60,6 @@ int main()
 
 
 
-    SDL_Event evt;
     clock_t measure = clock();
     while(true){
         SDL_PollEvent(&evt);

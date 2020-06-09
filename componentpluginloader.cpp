@@ -23,6 +23,6 @@ void ComponentPluginLoader::loadComponentPluginsFromDescriptor( const nlohmann::
        // std::cout<<"USED: " <<ComponentPluginLoader::loadedPlugins.at(ComponentPluginLoader::loadedPlugins.size()-1).use_count()<<std::endl;
         ComponentPlugin* plug = &*plugin;
         plug->onRegisterComponents(context);
-        plug->onRegisterSystems(context.getSp());
+        plug->onRegisterSystems(context.getSp(), context);
     }
 }

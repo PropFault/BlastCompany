@@ -16,7 +16,9 @@ private:
     FunctionManager &funcMan;
     ResourceLoader &resourceLoader;
 public:
-    Context(Window &window, SDLRenderer &renderer, EntityComponentManager& ecm, SystemPipeline& systemPipeline, FunctionManager& funcMan, ResourceLoader &resourceLoader);
+    SDL_Event &event;
+
+    Context(Window &window, SDLRenderer &renderer, EntityComponentManager& ecm, SystemPipeline& systemPipeline, FunctionManager& funcMan, ResourceLoader &resourceLoader, SDL_Event &event);
     EntityComponentManager &getEcm() const;
     void setEcm(const EntityComponentManager &value);
     SystemPipeline &getSp() const;
@@ -26,6 +28,8 @@ public:
     Window &getWindow() const;
     SDLRenderer &getRenderer() const;
     ResourceLoader &getResourceLoader() const;
+    SDL_Event &getEvent() const;
+    void setEvent(const SDL_Event &value);
 };
 
 #endif // CONTEXT_H
